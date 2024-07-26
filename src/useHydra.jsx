@@ -9,6 +9,8 @@ export function useHydra() {
         const hydra = new Hydra({
             canvas: canvasRef.current,
             detectAudio: false,
+            numSources: 10,
+            numOutputs: 10,
         });
 
         window.hydra = hydra;
