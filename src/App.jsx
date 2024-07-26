@@ -15,7 +15,7 @@ function App() {
 
   return (
     <>
-      <div className={clsx("flex flex-row justify-between items-end z-40 font-extrabold text-white")}>
+      <div className={clsx("fixed top-0 left-0 flex flex-row justify-between items-end z-40 font-extrabold text-white")}>
         <span className={clsx("text-inherit	")}> PRESENTE </span>
         <span className={clsx("text-inherit	")}> PRESENTES LINEALES</span>
         <span className={clsx("text-inherit	")}> PRESENTES SIMULTANEOS </span>
