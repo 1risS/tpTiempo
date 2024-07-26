@@ -1,10 +1,11 @@
 import { useHydra } from './useHydra'
-import { useCallback, useEffect } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import clsx from 'clsx';
 
 
 function App() {
   const [canvasRef, hydraLoaded] = useHydra()
+  const [prepared, setPrepared] = useState(false)
 
   useEffect(() => {
     if (!hydraLoaded) return;
@@ -16,11 +17,12 @@ function App() {
       s3.initScreen();
       s4.initScreen();
       s5.initScreen();
+      setPrepared(true);
     }
   }, [hydraLoaded]);
 
   const handleButton1Click = useCallback(() => {
-    if (!hydraLoaded) return;
+    if (!hydraLoaded || !prepared) return;
     src(s0)
       .mask(shape(4)
         .thresh()
@@ -29,10 +31,10 @@ function App() {
       .out(o1)
     src(o1).out();
     render(o0);
-  }, [hydraLoaded])
+  }, [hydraLoaded, prepared])
 
   const handleButton2Click = useCallback(() => {
-    if (!hydraLoaded) return;
+    if (!hydraLoaded || !prepared) return;
     src(s1)
       .mask(shape(4)
         .scrollX(0.08)
@@ -68,13 +70,13 @@ function App() {
       .blend(src(o5))
       .out()
     render(o0)
-  }, [hydraLoaded])
+  }, [hydraLoaded, prepared])
 
   const handleButton3Click = useCallback(() => {
-    if (!hydraLoaded) return;
+    if (!hydraLoaded || !prepared) return;
 
     osc().out()
-  }, [hydraLoaded])
+  }, [hydraLoaded, prepared])
 
   return (
     <>
