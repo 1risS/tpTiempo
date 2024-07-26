@@ -10,7 +10,9 @@ function App() {
   useEffect(() => {
     if (!hydraLoaded) return;
 
-    window.prepare = () => {
+    solid().out();
+
+    window.prepareSources = () => {
       s0.initCam();
       s1.initScreen();
       s2.initScreen();
@@ -23,6 +25,7 @@ function App() {
 
   const handleButton1Click = useCallback(() => {
     if (!hydraLoaded || !prepared) return;
+
     src(s0)
       .mask(shape(4)
         .thresh()
@@ -35,6 +38,7 @@ function App() {
 
   const handleButton2Click = useCallback(() => {
     if (!hydraLoaded || !prepared) return;
+
     src(s1)
       .mask(shape(4)
         .scrollX(0.08)
