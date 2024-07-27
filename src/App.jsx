@@ -34,7 +34,7 @@ function App() {
         .scale(1.7)
       )
       .out(o1)
-    src(o1).out();
+    src(o1).scrollX(-0.2).out();
     render(o0);
   }, [hydraLoaded, prepared])
 
@@ -180,8 +180,8 @@ function App() {
       .scrollX(-0.2)
       .luma(0.5)
       .thresh()
-      .blend(src(o2).saturate(4).scrollX(-0.2), [-1, 0].smooth())
-      .blend(src(o3).contrast(3).scrollX(-0.2), [0, 1].smooth())
+      .blend(src(o2).saturate(4).scrollX(-0.2))
+      .blend(src(o3).contrast(3).scrollX(-0.2))
       .blend(src(o4).scrollX(-0.2))
       .blend(src(o5).scrollX(-0.2))
       .out()
